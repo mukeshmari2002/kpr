@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import RegisterPage from "./register.js";
+import LoginPage from "./login.js";
+import HelloWorldPage from "./helloworld.js";
 
-function App() {
+const App = () => {
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+
+  const handleRegister = (username, password) => {
+    // Handle user registration logic here, e.g., API call to register the user
+    setIsRegistered(true);
+  };
+
+  const handleLogin = (username, password) => {
+    // Handle user login logic here, e.g., API call to authenticate the user
+    setIsLoggedIn(true);
+    setUsername(username);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!isRegistered ? (
+        <RegisterPage onRegister={handleRegister} />
+      ) : !isLoggedIn ? (
+        <LoginPage onLogin={handleLogin} />
+      ) : (
+        <HelloWorldPage username={username} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
