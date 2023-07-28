@@ -6,8 +6,6 @@ const LoginPage = ({ onLogin }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Perform login logic here, e.g., API call to authenticate the user
-    // For simplicity, we'll just call the onLogin callback with the username and password.
     onLogin(username, password);
   };
 
@@ -19,7 +17,7 @@ const LoginPage = ({ onLogin }) => {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          required
+          autoComplete="off" 
         />
       </div>
       <div>
@@ -28,7 +26,7 @@ const LoginPage = ({ onLogin }) => {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
+          autoComplete="off" 
         />
       </div>
       <button onClick={handleLogin}>Login</button>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import RegisterPage from "./register.js";
-import LoginPage from "./login.js";
-import HelloWorldPage from "./helloworld.js";
+import RegisterPage from "./register";
+import LoginPage from "./login";
+import HelloWorldPage from "./helloworld";
 
 const App = () => {
-  const [isRegistered, setIsRegistered] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isRegistered, setIsRegistered] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState("");
   const [username, setUsername] = useState("");
 
   const handleRegister = (username, password) => {
